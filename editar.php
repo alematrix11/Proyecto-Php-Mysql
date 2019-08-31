@@ -1,5 +1,7 @@
 <?php 
       
+    /*SE EMPIEZA A EDITAR A LA BASE DE DATOS*/
+
      //Se crean la variables y se les pasan los datos para editar con el metodo GET
         $id = $_GET['id'];
         $color = $_GET['color'];
