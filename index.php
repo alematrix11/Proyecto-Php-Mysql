@@ -51,7 +51,14 @@ if($_POST){
     
 }
 
+
 //Empezo a agregar mas codigo el viernes de 30 de agosto
+
+//Se detecta si hay un metodo GET
+if($_GET){
+    
+}
+
 
 ?>
 
@@ -96,10 +103,17 @@ if($_POST){
                 ?>
                  
                 <div class="alert alert-<?php echo $dato['color'] ?>" role="alert">
-                    
                     El alerta de Bootstrap esta funcionando.
-                    
                     <?php echo '<br>'.'La descripcion del color es: '.$dato['descripcion'] ?>
+                    
+                    <!--Se agrega icono de awesome-->
+                    <!--Se referencia el campo a editar por medio de href, utilizando su id-->
+                    <a href="index.php?id=<?php echo $dato['id'] ?>" class="float-right">
+                        <i class="fas fa-pencil-alt">
+                            
+                        </i>
+                    </a>
+                            
                     
                 </div>
             
@@ -109,6 +123,9 @@ if($_POST){
             
             <!--Se crea un formulario para mandar nuevos datos desde el DOM a la Base de datos-->
             <div class="col-md-6">
+                
+                <?php if(!$_GET): ?>
+                <!--Formulario para agregar elementos-->
                 <form class="form" method="POST">
                     
                     <h2>Agregando colores</h2>
@@ -119,6 +136,23 @@ if($_POST){
                     <input class="form-control" id="desc" name="desc" type="text">
                     <button class="btn btn-primary mt-3" type="submit">Agregar color</button>
                 </form>
+                <?php endif ?>
+                
+                
+                <?php if(!$_GET): ?>
+                <!--Formulario para editar elementos-->
+                <form class="form" method="POST">
+                    
+                    <h2>Editando colores</h2>
+                    
+                    <label for="color" class="">Ingresar color:</label>
+                    <input class="form-control " id="color" name="color" type="text">
+                    <label for="desc" class="mt-2">Ingresar descripcion:</label>
+                    <input class="form-control" id="desc" name="desc" type="text">
+                    <button class="btn btn-primary mt-3" type="submit">Editar color</button>
+                </form>
+                <?php endif ?>
+                
             </div>
             
         </div>
