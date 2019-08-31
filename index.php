@@ -57,6 +57,24 @@ if($_POST){
 //Se detecta si hay un metodo GET
 if($_GET){
     
+    //Se captura el valor del metodo GET con el id, y se lo guarda en una variable
+    $id = $_GET['id'];
+    
+    //Se debe leer la base de datos y la tabla colores
+    $soloId = 'SELECT * FROM colores WHERE id=?';
+    
+    //Se pasa a prepara la sentencia
+    $guardaId = $conex -> prepare($soloId);
+    
+    //Se pasa a ejecutar la sentencia
+    $guardaId -> execute(array($id));
+    
+    //Obtenemos el resultado
+    $resultId = $guardaId->fetch();
+    
+    //Obtenemos informacion sobre el resultado
+    //var_dump($resultId);
+    
 }
 
 
@@ -139,16 +157,17 @@ if($_GET){
                 <?php endif ?>
                 
                 
-                <?php if(!$_GET): ?>
+                <?php if($_GET): ?>
                 <!--Formulario para editar elementos-->
-                <form class="form" method="POST">
+                <form action="editar.php" class="form" method="GET">
                     
                     <h2>Editando colores</h2>
                     
-                    <label for="color" class="">Ingresar color:</label>
-                    <input class="form-control " id="color" name="color" type="text">
-                    <label for="desc" class="mt-2">Ingresar descripcion:</label>
-                    <input class="form-control" id="desc" name="desc" type="text">
+                    <label for="color" class="">Editar color:</label>
+                    <input class="form-control " id="color" name="color" type="text" value="<?php echo $resultId['color'] ?>">
+                    <label for="desc" class="mt-2">Editar descripcion:</label>
+                    <input class="form-control" id="desc" name="desc" type="text" value="<?php echo $resultId['descripcion'] ?>">
+                    <input type="hidden" name="id" value="<?php echo $resultId['id'] ?>">
                     <button class="btn btn-primary mt-3" type="submit">Editar color</button>
                 </form>
                 <?php endif ?>
