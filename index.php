@@ -124,7 +124,15 @@ if($_GET){
                     El alerta de Bootstrap esta funcionando.
                     <?php echo '<br>'.'La descripcion del color es: '.$dato['descripcion'] ?>
                     
-                    <!--Se agrega icono de awesome-->
+                    <!--Se agrega icono de awesome para eliminar-->
+                    <!--Se referencia el campo a eliminar por medio de href, utilizando su id-->
+                    <a href="eliminar.php?id=<?php echo $dato['id'] ?>" class="float-right ml-4">
+                        <i class="far fa-trash-alt">
+                            
+                        </i>
+                    </a>
+                    
+                    <!--Se agrega icono de awesome para editar-->
                     <!--Se referencia el campo a editar por medio de href, utilizando su id-->
                     <a href="index.php?id=<?php echo $dato['id'] ?>" class="float-right">
                         <i class="fas fa-pencil-alt">
