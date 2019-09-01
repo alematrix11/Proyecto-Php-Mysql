@@ -27,7 +27,7 @@ $result = $sql_brind->fetchAll();
 //var_dump($result);
 
 
-/*SE EMPIEZA A AGREGAR A LA BASE DE DATOS*/
+/*SE EMPIEZA A AGREGAR DATOS A LA BASE DE DATOS*/
 
 //Se verifica si los datos va a ser enviados por el metodo POST
 if($_POST){
