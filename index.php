@@ -46,6 +46,15 @@ if($_POST){
     //Una vez preparada la consulta, procedemos a ejecutarla, estableciendo los datos que se guardaron por el usuario
     $agregando->execute(array($guardaColor, $guardaDesc));
     
+    
+    /*SIEMPRE ES IMPORTANTE CERRAR LAS SESIONES*/
+    
+    //Debemos cerrar la sentencia
+    $agregando = null;
+    
+    //Debemos cerrar la sesion
+    $conex = null;
+    
     //Establecemos una actualizacion para que se agregue inmediatamente
     header('location:index.php');
     
@@ -198,3 +207,15 @@ if($_GET){
 </body>
 
 </html>
+
+<?php
+
+//Tambien cerramos la conexion de cuando se lee la base de datos
+    
+    //Cerramos la sentencia de lectura
+    $sql_brind = null;
+    
+    //Cerramos la conexion con la base de datos
+    $conex = null;
+    
+?>
