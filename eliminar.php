@@ -20,3 +20,8 @@ $eliminando -> execute(array($id));
 //Una vez completada la eliminacion de un dato, la pagina se actualizara
 header('location:index.php');
 
+//Cerramos la conexion
+$conex = null;
+
+//Cerramos la sentencia
+$eliminando = null;

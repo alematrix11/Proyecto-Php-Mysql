@@ -22,5 +22,12 @@
 
     //Establecemos una actualizacion para que se edite inmediatamente
     header('location:index.php');
+    
+    
+    //Cerramos la conexion
+    $conex = null;
+
+    //Cerramos la sentencia
+    $editando = null;
 
 ?>
